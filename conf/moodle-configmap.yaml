@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: moodle-configmap
+data:
+    MOODLE_DATABASE_HOST: "moodledb-service"
+    MOODLE_DATABASE_PORT_NUMBER: "3306"
+    MOODLE_DATABASE_USER: "bn_moodle"
+    MOODLE_DATABASE_NAME: "bitnami_moodle"
+    ALLOW_EMPTY_PASSWORD: "yes"
+

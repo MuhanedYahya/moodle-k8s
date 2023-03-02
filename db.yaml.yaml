@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: mariadb-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: moodledb
+  template:
+    metadata:
+      labels:
+        app: moodledb
+    spec:
+      containers:
+        - name: moodledb
+          image: docker.io/bitnami/mariadb:10.6
+          envFrom:
+          - secretRef:
+              name: moodle-secret
+      #     volumeMounts:
+      #       - mountPath: /bitnami/mariadb
+      #         name: db-volume
+      # volumes:
+      #   - name: db-volume
+      #     persistentVolumeClaim:
+      #       claimName: moodledb-pvc
